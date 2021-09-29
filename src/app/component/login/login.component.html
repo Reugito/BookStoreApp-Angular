@@ -1,0 +1,46 @@
+
+<div style="padding: 10%;">
+<div class="container " ><br>
+  <div style="margin-left: 8%;">
+  <img src="assets\logos\open-book.png" width="15%" style="margin-left: 25%; ">&nbsp;&nbsp;
+  <label style="font-size:xx-large;">Book Store</label><br><br>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" *ngIf = "!forgotpass">
+    <div class="example-container " >
+      <mat-form-field class="mat-form-field-infix"  appearance="outline">
+        <mat-label>Enter your email</mat-label>
+           <input matInput placeholder="pat@example.com" formControlName="username" required>
+         </mat-form-field>
+
+        <mat-form-field style="width: 450px;" appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input type="password" matInput  formControlName="password">
+      </mat-form-field><br>
+      <div style="margin-left: 8%;">
+          <mat-checkbox class="example-margin" >Remember Me</mat-checkbox>
+          <a href="#" style="margin-left: 15%;" (click) = "onForgotPassword()"> Forgot Password ?</a>
+      </div><br>
+      <button style=" width: 72%;" type="submit" class="btn btn-primary btn-lg">Login</button><br><br>
+      <p style="margin-left: 28%; ">Not a member?
+        <a href="" [routerLink]="['/register']" routerLinkActive="router-link-active">Register</a>
+      </p>
+    </div>
+  </form>
+  <form [formGroup]="formGroup" (ngSubmit)="onVerify()" *ngIf="forgotpass">
+    <div class="example-container " >
+      <mat-form-field class="mat-form-field-infix"  appearance="outline">
+        <mat-label>Enter your email</mat-label>
+           <input matInput placeholder="pat@example.com" formControlName="username" required>
+         </mat-form-field>
+
+        <mat-form-field style="width: 450px;" appearance="outline">
+            <mat-label>Enter New password</mat-label>
+            <input type="password" matInput  formControlName="password">
+      </mat-form-field><br><br>
+      <button style=" width: 72%;" type="submit" class="btn btn-primary btn-lg">SUBMIT</button><br><br>
+    
+    </div>
+  </form>
+</div>
+  <br>
+</div>
+</div>

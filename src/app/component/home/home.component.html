@@ -1,0 +1,49 @@
+
+<br>
+<div class="container" >
+  <div class="header">
+    <label style="margin-left: 30px; font-size:x-large;">Books</label ><br>
+    <span style="margin-top: 10px; color: rgb(141, 145, 148); margin-left: 5px;">({{books.length}} Items)</span>
+    <div class="dropdown">
+      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort by relevance
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button" (click)="Onsort(1)">Price: High to Low</button>
+        <button class="dropdown-item" type="button" (click)="Onsort(2)">Price: Low to High </button>
+        <button class="dropdown-item" type="button" (click)="Onsort(3)">Newest Arival</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row1">
+    <br style="margin-left: 30px;">
+    <div class="card" style="width: 15rem; " *ngFor = "let book of books">
+      <img class="card-img-top" src={{book.logo}} alt="Card image cap">
+      <div class="card-body">
+        <div style="line-height: 15px;">
+          <span class="card-title">{{book.name}}</span>
+          <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
+          <h6  *ngIf="book.quantity == 0; else logged" style="color: red;"><b>{{sold}}</b></h6>
+          <ng-template #logged>
+            <br><br>
+          </ng-template>
+          
+        </div>
+        <!-- <p class="card-text">{{book.description}}</p> -->
+        <p class="card-text" style="color: black;"><b>Rs.{{book.price}}</b></p>
+        
+        <div *ngIf = "!bookIdLIst.includes(book.book_id) && book.quantity != 0; else loggedOut" >
+          <button style="background-color: brown; border: brown;"  class="card-link btn btn-primary btn-sm"  (click) = "addToCart(book.book_id)">ADD TO BAG</button>
+          <button style="background-color: white; color: black; border:black 1px solid;" class="card-link btn btn-primary btn-sm">WISHLIST</button>
+        </div>
+        <ng-template #loggedOut>
+          <button *ngIf="book.quantity != 0;" class="card-link btn btn-primary btn-sm" style="width: 90%;" >ADDED TO BAG</button>
+        </ng-template>
+        <button *ngIf="book.quantity == 0;" style="background-color: white; color: black; width: 90%; border:black 1px solid;" class="card-link btn btn-primary btn-sm">WISHLIST</button>
+      </div>
+    </div>
+  </div> 
+</div>
+
+

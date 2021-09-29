@@ -1,0 +1,53 @@
+
+ .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    width: 76%;
+    justify-content:left;
+ }
+
+ .container{
+     border: rgb(226, 216, 216) solid 1px;
+     margin-top: 10px;
+     width: 76%;
+ }
+
+ .main-content{
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .logo{
+    width: 100px;
+    height: 100px;
+
+ }
+
+ .bt{
+     border-radius: 90px;
+     background-color: white;
+     border: rgb(223, 222, 222) solid 0.1px;
+ }
+
+.customer-content{
+    width: 60%;
+    justify-content: space-between;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 106px;
+  }
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 25%;
+}
+
+.llogo{
+    width: 20px;
+    height: 21px;
+    background-image: url("src\assets\supermarket.svg")
+}

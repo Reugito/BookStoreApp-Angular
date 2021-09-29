@@ -1,0 +1,46 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 1px;
+  }
+
+  .example-container{
+    margin-left: 12%;
+  }
+
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+    font-size: 150%;
+    line-height: 0.9px;
+}
+
+.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 450px;
+}
+
+.container{
+  margin-top: 1%;
+  width: 60%;
+  border: rgb(155, 147, 147) solid 1px;
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f7f7f7;
+}

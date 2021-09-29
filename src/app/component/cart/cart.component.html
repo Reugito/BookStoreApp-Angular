@@ -1,0 +1,118 @@
+
+    <br>
+
+    <h1 style="margin-left: 187px;">MyCart ({{bookIdLIst.length}})</h1>
+    <div class="container" >
+      <div style="margin-left: 20px;" *ngFor = "let item of carts"><br>
+        
+        <div class="main-content">
+            <div class="logo-d">
+                <img class="logo" src = {{item.book.logo}}>
+            </div>
+            
+            <div style="margin-left: 30px;">
+                <span >{{item.book.name}}</span>
+                <h6>{{item.book.author}}</h6>
+               
+
+                <p class="card-text" style="color: black;"><b>Rs.{{item.book.price}}</b></p>
+                <div>
+                    <button class="bt" type="button" (click)="minus(item.cart_id, item.quantity, item.book.book_id)" ><i class = "fa fa-minus"></i> </button>
+                    <input style="width: 20px;" type="text" [value] = "item.quantity">
+        
+                   
+                    <button class="bt" type="button" (click)="plus(item.cart_id, item.quantity, item.book.book_id)"><i class = "fa fa-plus"></i> </button>
+                    <a style="margin-left: 30px;" (click) = "onRemove(item.cart_id)">Remove</a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <button style="margin-left: 60%;" *ngIf = "!custDetails && bookIdLIst.length" (click)= onPlaceOrder(); class="btn btn-primary btn-sm" >PLace Order</button><br><br>
+    </div>
+   
+
+    <div class="container"><br>
+      <div style="margin-left: 20px;">
+        <div style="display: flex;">
+      <h1>Customer Details</h1>
+      <h3 style="margin-left: 80%;" *ngIf="checkout">Edit</h3>
+    </div>
+
+    <form [formGroup] = "formGroup "  (ngSubmit)="onSubmit()" novalidate *ngIf = "custDetails" >
+
+      <div >
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Name"  formControlName="first_name">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Phone Number" formControlName="phone_no">
+        </mat-form-field>
+        &nbsp;
+      </div>
+      <div >
+        <mat-form-field appearance="outline">
+          <mat-label>Pincode</mat-label>
+          <input matInput placeholder="Pincode"  formControlName="pin_code">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field appearance="outline">
+          <mat-label>Locality</mat-label>
+          <input matInput placeholder="Phone Number"  formControlName="locality">
+        </mat-form-field>
+        &nbsp;
+      </div>
+      <div >
+        <mat-form-field style="width: 51%; " appearance="outline">
+          <mat-label>Address</mat-label>
+          <input  matInput placeholder="Address"  formControlName="address">
+        </mat-form-field>
+      </div>
+      <div >
+        <mat-form-field appearance="outline">
+          <mat-label>city/town</mat-label>
+          <input  matInput placeholder="city/town"  formControlName="city">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field appearance="outline">
+          <mat-label>Landmark</mat-label>
+          <input  matInput placeholder="Landmark" formControlName="landmark">
+        </mat-form-field><br>
+        <!-- &nbsp; -->
+      </div>
+      <div>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="type">
+          <mat-radio-button class="example-radio-button" *ngFor="let i of types" [value]="i" (click) = "onContinue()">{{i}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm" style="margin-left: 60%;"[disabled] ="!continue"  >CONTINUE</button><br><br>
+    </form>
+  </div>
+  </div>
+
+  <div class="container"><br>
+    <div style="margin-left: 20px;">
+      <h1>Order Summary</h1>
+      <div *ngIf="checkout">
+        <div *ngFor = "let item of carts">
+          <div style="margin-left: 20px;"><br>
+            
+            <div class="main-content">
+                <div class="logo-d">
+                    <img class="logo" src = {{item.book.logo}}>
+                </div>
+                
+                <div style="margin-left: 30px;">
+                    <span >{{item.book.name}}</span>
+                    <h6>{{item.book.author}}</h6>
+                    <p class="card-text" style="color: black;"><b>Rs.{{item.book.price*item.quantity}}</b></p>
+                </div>
+            </div>
+          </div>
+        </div><br>
+        <button type="button" class="btn btn-primary btn-sm" style="margin-left: 60%;" [routerLink]="['/feedback', orderId]" routerLinkActive="router-link-active" (click)="onRemoveAll()">CHECKOUT</button><br><br>
+      </div>
+    </div>
+  </div><br>

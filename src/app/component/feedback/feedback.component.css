@@ -1,0 +1,33 @@
+.logo-content{
+/* margin-top: 117px;
+margin-left: 599px; */
+width: 170px;
+height: 225px;
+background-image: url("src\assets\Group 4132.svg");
+opacity: 1;
+margin-left: 30%;
+}
+.main-content{
+    margin-top: 50px;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+}
+
+.summary{
+    margin-left: 45%;
+    width: 348px;
+    height: 66px;
+    text-align: center;
+    font: normal normal normal 18px/22px Lato;
+    letter-spacing: 0px;
+    color: #333232;
+    opacity: 1;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+

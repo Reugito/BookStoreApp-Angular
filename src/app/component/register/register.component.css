@@ -1,0 +1,11 @@
+.container{
+    border: solid black 1px;
+    width: 80%;
+    justify-content: center;
+}
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 51%;
+}
