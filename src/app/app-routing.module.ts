@@ -10,8 +10,7 @@ import { VerificationComponent } from './component/verification/verification.com
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'home/', redirectTo: '/home' },
-  { path: 'home/:name', component: HomeComponent },
+ 
   { path: 'cart', component: CartComponent},
   { path: 'register', component: RegisterComponent},
   {path: 'verification/:email_id', component: VerificationComponent},
